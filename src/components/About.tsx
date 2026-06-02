@@ -6,9 +6,9 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-          dolores numquam iusto Ratione earum ducimus autem id iure pariatur
-          dolorum quae maiores.
+          I am a Master of Science in Data Science student at the University at Buffalo. 
+          With a strong background in AI/ML Engineering, Data Engineering, and Predictive Analytics, 
+          I am passionate about building intelligent systems and robust data pipelines that solve complex problems.
         </p>
       </div>
     </div>

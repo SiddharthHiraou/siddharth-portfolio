@@ -167,7 +167,7 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className="techstack">
+    <div className="techstack" style={{ position: "relative" }}>
       <h2> My Techstack</h2>
 
       <Canvas
