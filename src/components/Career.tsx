@@ -15,92 +15,47 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>AI/ML Engineer Intern</h4>
-                <h5>INTISCA TECHNOLOGIES</h5>
+                <h4>AI/ML Engineer</h4>
+                <h5>Avnet, NY</h5>
               </div>
-              <h3>2026</h3>
+              <h3>Jan 2026 – Present</h3>
             </div>
             <p>
-              Architected and developed a multi-agent LLM system using CrewAI.
-              Built a FastAPI backend integrated with DynamoDB and S3 for agent context.
+              • Architect scalable machine learning pipelines using Python, PyTorch, MLflow, and Docker, reducing model deployment time by 34% while improving release reliability across production environments.<br />
+              <br />
+              • Develop Retrieval-Augmented Generation (RAG) applications with LangChain, vector databases, and LLMs, increasing response accuracy by 28% for enterprise knowledge search.<br />
+              <br />
+              • Optimize deep learning models through hyperparameter tuning, feature engineering, and distributed training, improving prediction performance by 19% while lowering inference latency by 24%.<br />
+              <br />
+              • Implement automated MLOps workflows leveraging Git, CI/CD, Kubernetes, and AWS services, decreasing model release cycles by 31% and minimizing deployment errors.<br />
+              <br />
+              • Integrate NLP solutions using Hugging Face Transformers and TensorFlow for document intelligence, boosting entity extraction precision by 23% and reducing manual review efforts.<br />
+              <br />
+              • Collaborate with cross-functional stakeholders to deliver AI-driven analytics using SQL, Python, and cloud data platforms, accelerating business decision-making by 27% through production-ready ML solutions.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Data Science Intern</h4>
-                <h5>Machine Monitoring Systems (MMS)</h5>
+                <h4>ML Engineer</h4>
+                <h5>Siemens, India</h5>
               </div>
-              <h3>2025</h3>
+              <h3>Sep 2022 – Jul 2024</h3>
             </div>
             <p>
-              Built an end-to-end fault prediction pipeline for industrial rotor machines.
-              Deployed 2D-CNN/ResNet models as an early-warning predictive maintenance system.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Data Pipeline Engineering Intern</h4>
-                <h5>INTISCA TECHNOLOGIES</h5>
-              </div>
-              <h3>2025</h3>
-            </div>
-            <p>
-              Designed and developed an ETL pipeline integrating multiple LLMs (OpenAI GPT-4.0).
-              Implemented and orchestrated pipelines using Apache Airflow and Python.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Data Engineering Intern</h4>
-                <h5>Hanker Analytics</h5>
-              </div>
-              <h3>2023</h3>
-            </div>
-            <p>
-              Built an end-to-end ETL pipeline and designed web scrapers.
-              Developed a Data Quality Management model improving analysis report accuracy.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Data Analyst Intern</h4>
-                <h5>Internlabs</h5>
-              </div>
-              <h3>2022-2023</h3>
-            </div>
-            <p>
-              Consolidated diverse data into a unified structure (90,000+ real estate listings).
-              Spearheaded an automated data pipeline saving 48 hours of work per week.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Research Assistant</h4>
-                <h5>Isquare-IT</h5>
-              </div>
-              <h3>2022-2023</h3>
-            </div>
-            <p>
-              Developed a real-time poultry monitoring system using AI/ML algorithms.
-              Utilized Python, OpenCV, and CNN-based pattern recognition.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Software Intern (Python)</h4>
-                <h5>ORGPEDIA</h5>
-              </div>
-              <h3>2023</h3>
-            </div>
-            <p>
-              Worked on debugging Python code for the company's document analysis model.
-              Increased model accuracy by 22.61%.
+              • Designed, supervised, and unsupervised machine learning models using Scikit-learn and Python, increasing predictive accuracy by 21% across manufacturing analytics initiatives.<br />
+              <br />
+              • Engineered robust data preprocessing and feature engineering pipelines with Pandas and NumPy, improving training data quality by 26% and reducing preparation time by 30%.<br />
+              <br />
+              • Evaluated multiple classification and regression algorithms through cross-validation and performance benchmarking, improving model selection efficiency by 18%.<br />
+              <br />
+              • Automated model training and validation workflows using Python scripting and SQL, decreasing repetitive manual effort by 32% while ensuring consistent experiment tracking.<br />
+              <br />
+              • Enhanced neural network performance with TensorFlow optimization techniques, reducing training duration by 22% and improving inference consistency across production datasets.<br />
+              <br />
+              • Validated model outputs through statistical analysis, error monitoring, and performance reporting, increasing prediction reliability by 17% and supporting data-driven engineering decisions.<br />
+              <br />
+              • Delivered machine learning solutions alongside software and business teams, enabling analytics adoption that improved operational process efficiency by 20% across targeted business functions.
             </p>
           </div>
         </div>
