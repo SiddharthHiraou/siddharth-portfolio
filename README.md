@@ -12,9 +12,3 @@ This portfolio was built using modern web technologies to create a dynamic and e
 
 - **Frontend:** React, TypeScript, HTML, CSS, JavaScript
 - **Animations & 3D:** GSAP, Three.js, WebGL
-
----
-
-## 📄 License
-
-This project is open-source and available for learning purposes. Feel free to explore the code, but please ensure you personalize it and do not copy the exact design or custom 3D assets for your own commercial use. Build your own unique version!
