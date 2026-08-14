@@ -13,16 +13,16 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
-  "/images/python.svg",
-  "/images/pytorch.svg",
-  "/images/tensorflow.svg",
-  "/images/docker.svg",
-  "/images/kubernetes.svg",
-  "/images/aws.svg",
-  "/images/gcp.svg",
-  "/images/git.svg",
-  "/images/java.svg",
-  "/images/postgres.svg",
+  "/images/python.png",
+  "/images/pytorch.png",
+  "/images/tensorflow.png",
+  "/images/docker.png",
+  "/images/kubernetes.png",
+  "/images/aws.png",
+  "/images/gcp.png",
+  "/images/git.png",
+  "/images/java.png",
+  "/images/postgres.png",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
