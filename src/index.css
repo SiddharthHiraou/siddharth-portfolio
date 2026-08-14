@@ -37,6 +37,7 @@ body {
 a {
   color: inherit;
   text-decoration: inherit;
+  font-family: "Geist", sans-serif;
 }
 a:hover {
   color: var(--accentColor);
