@@ -47,6 +47,8 @@
   position: absolute;
   z-index: 99;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   bottom: 40px;
   right: 0;
@@ -56,21 +58,20 @@
   font-size: 15px;
   line-height: 15px;
   font-weight: 600;
-  color: #5e5e5e;
+  color: #fff;
+  background: var(--accentColor, #9d4edd);
+  padding: 12px 24px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0px 4px 15px rgba(157, 78, 221, 0.4);
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.3s ease;
   transform-origin: left bottom;
   transform: translateX(100%) rotateZ(-90deg);
 }
 .resume-button:hover {
+  background: #7b2cbf;
+  box-shadow: 0px 6px 20px rgba(157, 78, 221, 0.6);
   color: #fff;
-}
-div.resume-button span {
-  color: #fff;
-  font-size: 17px;
-  margin-top: -1px;
-  display: flex;
-  align-items: center;
 }
 .check-line {
   position: fixed;
@@ -93,11 +94,11 @@ div.resume-button span {
 @media only screen and (min-width: 768px) {
   .resume-button {
     transform: none;
-    font-size: 20px;
-    line-height: 20px;
-  }
-  div.resume-button span {
-    font-size: 23px;
-    margin-top: -1.5px;
+    font-size: 16px;
+    line-height: 16px;
+    bottom: 30px;
+    right: 20px;
+    padding: 12px 28px;
+    border-radius: 30px;
   }
 }
