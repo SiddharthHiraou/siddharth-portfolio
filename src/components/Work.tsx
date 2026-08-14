@@ -54,29 +54,34 @@ const Work = () => {
         <div className="work-flex">
           {[
             {
-              title: "AutoETL",
-              category: "Data Engineering",
-              tools: "GPT-4, LangChain, Airflow, Pandas, Streamlit",
+              title: "Smart Chicken Disease Detection",
+              category: "Venky’s Kitchen and Farm | Aug 2024 - Nov 2024",
+              tools: "Python, YOLOv8, PyTorch, OpenCV, FastAPI, MQTT, Docker, Next.js, Supabase",
+              link: "https://smart-poultry-platform.vercel.app/",
               description: [
-                "Built a natural language-driven ETL pipeline generator.",
-                "Integrated with Apache Airflow to auto-generate and schedule DAGs.",
-                "Provided an interactive Streamlit interface for transformations."
+                "Built a real-time poultry health platform flagging sick, dead, and abnormal birds from camera feeds.",
+                "Designed a two-stage CV pipeline with YOLOv8 and a fine-tuned classifier, served via Dockerized FastAPI.",
+                "Automated shed climate control via an MQTT rules engine using live sensor readings and dashboard overrides.",
+                "Shipped Next.js/Supabase dashboard with real-time alerting, health scoring, RBAC, and client-side face check-in."
               ]
             },
             {
-              title: "Flock Vision",
-              category: "Computer Vision",
-              tools: "Python, OpenCV, CNN, AWS, PyTorch",
+              title: "AutoETL",
+              category: "Intisca Technologies | Aug 2024 - Nov 2024",
+              tools: "TypeScript, Next.js 15, Python, FastAPI, Polars, DuckDB, Redis, Supabase, LLMs",
+              link: "https://autoetl-mu.vercel.app/",
               description: [
-                "Developed a real-time poultry monitoring system using AI/ML.",
-                "Analyzed over 41,000 images for health trend identification.",
-                "Implemented attendance monitoring system for farm workers."
+                "Built a full-stack app converting plain English prompts into executable ETL pipelines.",
+                "Wrote a custom Python DAG executor with topological ordering, retries, and live step status streaming.",
+                "Hardened the AI layer with dual validation, a sandboxed AST compiler, encrypted credentials, and Postgres RLS.",
+                "Designed a provider-agnostic LLM layer with cost-aware routing and comprehensive test coverage."
               ]
             },
             {
               title: "Fault Prediction in Rotor Machines",
               category: "Deep Learning",
               tools: "2D-CNN, ResNet, TensorFlow/PyTorch",
+              link: "",
               description: [
                 "Built an end-to-end fault prediction pipeline for industrial machines.",
                 "Improved fault-pattern separability by 60% after signal pre-processing.",
@@ -87,6 +92,7 @@ const Work = () => {
               title: "Credit Risk Analytics",
               category: "Machine Learning",
               tools: "XGBoost, Flask, PyTorch, Scikit-learn",
+              link: "",
               description: [
                 "Developed predictive system to evaluate credit risk.",
                 "Engineered ML models with extensive hyperparameter tuning.",
@@ -97,6 +103,7 @@ const Work = () => {
               title: "End-to-End ML Pipeline",
               category: "MLOps",
               tools: "FastAPI, Streamlit, MLflow, SQLite",
+              link: "",
               description: [
                 "Built an end-to-end data intelligence pipeline.",
                 "Implemented ML models with experiment tracking via MLflow.",
@@ -110,7 +117,20 @@ const Work = () => {
                   <h3>0{index + 1}</h3>
 
                   <div>
-                    <h4>{project.title}</h4>
+                    <h4>
+                      {project.link ? (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "4px" }}
+                        >
+                          {project.title}
+                        </a>
+                      ) : (
+                        project.title
+                      )}
+                    </h4>
                     <p>{project.category}</p>
                   </div>
                 </div>
