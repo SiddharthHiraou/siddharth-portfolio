@@ -2,6 +2,7 @@ import "./styles/Work.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { FiExternalLink } from "react-icons/fi";
 
 gsap.registerPlugin(useGSAP);
 
@@ -117,21 +118,20 @@ const Work = () => {
                   <h3>0{index + 1}</h3>
 
                   <div>
-                    <h4>
-                      {project.link ? (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "4px" }}
-                        >
-                          {project.title}
-                        </a>
-                      ) : (
-                        project.title
-                      )}
-                    </h4>
+                    <h4>{project.title}</h4>
                     <p>{project.category}</p>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: "var(--accentColor, #9d4edd)", textDecoration: "none", display: "inline-flex", alignItems: "center", fontSize: "14px", fontWeight: 500, marginTop: "10px", padding: "6px 12px", background: "rgba(255,255,255,0.05)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.1)", transition: "background 0.3s ease" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.1)")}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.05)")}
+                      >
+                        Live Demo <FiExternalLink style={{ marginLeft: "6px" }} />
+                      </a>
+                    )}
                   </div>
                 </div>
                 <h4>Tools and features</h4>
