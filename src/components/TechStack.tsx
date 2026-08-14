@@ -23,13 +23,26 @@ const imageUrls = [
   "/images/git.png",
   "/images/java.png",
   "/images/postgres.png",
+  "/images/cplusplus.png",
+  "/images/r.png",
+  "/images/keras.png",
+  "/images/scikitlearn.png",
+  "/images/apachespark.png",
+  "/images/hadoop.png",
+  "/images/azure.png",
+  "/images/github.png",
+  "/images/mysql.png",
+  "/images/pandas.png",
+  "/images/numpy.png",
+  "/images/bash.png",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(30)].map(() => ({
+const spheres = [...Array(30)].map((_, i) => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
+  materialIndex: i % imageUrls.length,
 }));
 
 type SphereProps = {
@@ -195,7 +208,7 @@ const TechStack = () => {
             <SphereGeo
               key={i}
               {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
+              material={materials[props.materialIndex]}
               isActive={isActive}
             />
           ))}
