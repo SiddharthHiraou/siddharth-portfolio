@@ -1,7 +1,13 @@
+/* ================================================
+   WORK SECTION – Premium Redesign v2
+   ================================================ */
+
 .work-section h2 {
-  margin-top: 100px;
+  margin-top: 50px;
+  margin-bottom: 20px;
   font-size: 70px;
   font-weight: 500;
+  flex-shrink: 0;
 }
 .work-section h2 > span {
   color: var(--accentColor);
@@ -11,6 +17,7 @@
   height: 100vh;
   box-sizing: border-box;
   will-change: transform;
+  overflow: hidden;
 }
 .work-container {
   margin: auto;
@@ -26,20 +33,8 @@
   margin-left: -80px;
   padding-right: 120px;
   position: relative;
-}
-.work-box {
-  padding: 80px;
-  display: flex;
-  flex-direction: column;
-  width: 600px;
-  box-sizing: border-box;
-  border-right: 1px solid #363636;
-  flex-shrink: 0;
-  gap: 50px;
-  justify-content: start;
-}
-.work-flex .work-box:nth-child(even) {
-  flex-direction: column-reverse;
+  /* Allow cards to fill available height */
+  min-height: 0;
 }
 .work-flex::before,
 .work-flex::after {
@@ -55,151 +50,278 @@
 .work-flex::after {
   top: 100%;
 }
-.work-title {
-  justify-content: space-between;
+
+/* ================================================
+   PROJECT CARD
+   ================================================ */
+.work-box {
+  padding: 24px 32px;
   display: flex;
-  width: 100%;
-  margin-bottom: 20px;
+  flex-direction: column;
+  width: 580px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  gap: 12px;
+  justify-content: start;
+  position: relative;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.4s ease;
+  /* KEY FIX: constrain to parent height, allow internal scroll */
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-.work-title > div {
-  text-align: right;
+.work-box::-webkit-scrollbar {
+  display: none;
 }
-.work-title h3 {
-  font-size: 50px;
-  line-height: 50px;
-  margin: 0;
-  font-weight: 600;
+.work-box:hover {
+  background: rgba(255, 255, 255, 0.02);
 }
 
-.work-info h4 {
-  font-size: 18px;
-  font-weight: 400;
-  margin: 0;
-}
-.work-info p {
-  font-weight: 200;
-  color: #adacac;
-  margin: 0;
-  margin-top: 3px;
-}
-.work-info > p {
-  width: 90%;
-}
-.work-image {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-.work-image-in {
+/* All cards: image on top, info below — consistent layout */
+
+/* ================================================
+   HERO IMAGE
+   ================================================ */
+.work-hero {
   position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  /* Cap image height so it doesn't eat the viewport */
+  max-height: 280px;
 }
-.work-link {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: var(--backgroundColor);
-  width: 50px;
-  border-radius: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 25px;
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5),
-    inset 0px 0px 10px 0px #393939;
-  transition: 0.3s;
-  opacity: 0;
+.work-box:hover .work-hero {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
 }
-.work-image a:hover {
-  color: inherit;
-}
-.work-image a:hover .work-link {
-  opacity: 1;
-}
-.work-image video {
-  position: absolute;
+.work-hero img {
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  background-color: #000;
   object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.work-image img {
-  max-width: 100%;
-  max-height: 350px;
+.work-box:hover .work-hero img {
+  transform: scale(1.03);
 }
-@media only screen and (max-height: 900px) {
-  .work-image img {
-    max-height: 250px;
-  }
-  .work-box {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
-  .work-section h2 {
-    font-size: 60px;
-    margin-bottom: 30px;
-    margin-top: 70px;
-  }
+
+/* Project number badge */
+.work-number {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 4px 12px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* ================================================
+   INFO SECTION
+   ================================================ */
+.work-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-height: 0;
+}
+
+.work-title h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+}
+
+.work-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+.work-category {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--project-accent, var(--accentColor));
+  background: rgba(168, 85, 247, 0.08);
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(168, 85, 247, 0.15);
+}
+.work-period {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 400;
+}
+
+/* ================================================
+   TECH PILLS
+   ================================================ */
+.work-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.work-pill {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+.work-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--project-accent, var(--accentColor));
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ================================================
+   DESCRIPTION CARD
+   ================================================ */
+.work-description-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 14px 18px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.4s ease, border-color 0.4s ease;
+
+}
+.work-description-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.work-description-card ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.work-description-card li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 300;
+}
+.work-description-card li:last-child {
+  margin-bottom: 0;
+}
+.work-description-card li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--project-accent, var(--accentColor));
+  font-size: 14px;
+  top: -1px;
+}
+
+/* ================================================
+   DEMO LINK – Inline with meta
+   ================================================ */
+.work-demo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  color: var(--project-accent, var(--accentColor));
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.work-demo-link:hover {
+  background: var(--project-accent, var(--accentColor));
+  border-color: var(--project-accent, var(--accentColor));
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.work-demo-link svg {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+.work-demo-link:hover svg {
+  transform: translate(1px, -1px);
+}
+
+/* ================================================
+   RESPONSIVE – ≤ 1400px
+   ================================================ */
 @media only screen and (max-width: 1400px) {
-  .work-title h3 {
-    font-size: 35px;
-  }
-  .work-info p {
-    font-size: 13px;
-  }
-  .work-info h4 {
-    font-size: 15px;
+  .work-section h2 {
+    font-size: 50px;
+    margin-top: 40px;
+    margin-bottom: 15px;
   }
   .work-box {
-    width: 450px;
-    padding: 50px;
+    width: 460px;
+    padding: 20px 24px;
+    gap: 10px;
   }
   .work-flex {
     margin-left: -50px;
     padding-right: 75px;
   }
-  .work-section h2 {
-    font-size: 50px;
+  .work-title h4 {
+    font-size: 16px;
   }
-}
-@media only screen and (max-width: 1400px) {
-  .work-box {
-    width: 350px;
-    padding: 30px;
+  .work-hero {
+    max-height: 220px;
   }
-  .work-flex {
-    margin-left: -30px;
-    padding-right: 45px;
+  .work-description-card {
+    padding: 12px 16px;
   }
+  .work-description-card li {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+  .work-pill {
+    font-size: 8px;
+    padding: 2px 7px;
+  }
+
 }
 
-@media only screen and (max-height: 650px) {
-  .work-image img {
-    max-height: 200px;
-  }
-  .work-section h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-  }
-  .work-box {
-    gap: 20px;
-  }
-}
-/* @media only screen and (max-width: 900px) {
-  .work-image img {
-    max-height: 200px;
-  }
-  .work-section h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-  }
-  .work-box {
-    gap: 20px;
-  }
-} */
+/* ================================================
+   RESPONSIVE – ≤ 1025px (Tablet)
+   ================================================ */
 @media only screen and (max-width: 1025px) {
   .work-container {
     align-content: normal;
@@ -209,48 +331,69 @@
   }
 }
 
-.work-description-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 30px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, background 0.3s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
+/* ================================================
+   RESPONSIVE – Short screens
+   ================================================ */
+@media only screen and (max-height: 900px) {
+  .work-section h2 {
+    font-size: 55px;
+    margin-top: 35px;
+    margin-bottom: 12px;
+  }
+  .work-box {
+    padding: 18px 24px;
+    gap: 8px;
+  }
+  .work-hero {
+    max-height: 200px;
+  }
+  .work-description-card {
+    padding: 10px 14px;
+  }
+  .work-description-card li {
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+
 }
 
-.work-description-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+@media only screen and (max-height: 750px) {
+  .work-section h2 {
+    font-size: 45px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+  .work-hero {
+    max-height: 160px;
+  }
+  .work-box {
+    padding: 14px 20px;
+    gap: 6px;
+  }
+  .work-description-card li {
+    font-size: 10px;
+    line-height: 1.45;
+    margin-bottom: 4px;
+    padding-left: 14px;
+  }
+  .work-pill {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
 }
 
-.work-description-card ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.work-description-card li {
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 15px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #e0e0e0;
-}
-
-.work-description-card li::before {
-  content: "▹";
-  position: absolute;
-  left: 0;
-  color: var(--accentColor, #9d4edd);
-  font-size: 18px;
-  top: -2px;
+@media only screen and (max-height: 650px) {
+  .work-section h2 {
+    font-size: 36px;
+    margin-top: 15px;
+    margin-bottom: 8px;
+  }
+  .work-hero {
+    max-height: 130px;
+  }
+  .work-box {
+    gap: 5px;
+    padding: 10px 16px;
+  }
 }
