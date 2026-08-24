@@ -90,14 +90,14 @@ const Work = () => {
               ]
             },
             {
-              title: "Credit Risk Analytics",
-              category: "Machine Learning",
-              tools: "XGBoost, Flask, PyTorch, Scikit-learn",
-              link: "",
+              title: "Predictive Analytics for Credit Risk Evaluation",
+              category: "University at Buffalo | Jun 2023 - Jan 2024",
+              tools: "Python, Polars, LightGBM, XGBoost, CatBoost, Optuna, SHAP, Fairlearn, MLflow, Prefect, FastAPI, ONNX, PostgreSQL, Redis, Docker, Terraform, Next.js, TypeScript",
+              link: "https://creditlens-seven.vercel.app/",
               description: [
-                "Developed predictive system to evaluate credit risk.",
-                "Engineered ML models with extensive hyperparameter tuning.",
-                "Deployed Flask API integrated into a PyTorch backend."
+                "Built a credit decisioning platform scoring loan applications in 9 ms with calibrated default probability, 300-850 score, decisions, and ECOA adverse-action reasons; engineered 221 features from 9.6M rows in Polars.",
+                "Compared WOE scorecard, LightGBM, XGBoost, and CatBoost on out-of-time splits with Optuna tuning under monotonic constraints; champion reached 0.583 Gini / 0.435 KS vs a 0.525 baseline.",
+                "Automated drift monitoring and retraining with Prefect and MLflow behind a five-check promotion gate; documented a four-fifths rule failure on age (DI 0.384) via Fairlearn in an SR 11-7 validation report."
               ]
             },
             {
