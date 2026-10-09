@@ -90,18 +90,19 @@ const WhatIDo = () => {
               <h3>AI / ML ENGINEERING</h3>
               <h4>Description</h4>
               <p>
-                Architecting intelligent systems, multi-agent frameworks, and predictive pipelines 
-                for scalable, real-world applications.
+                Building Generative AI applications, RAG pipelines, and NLP features 
+                with LLMs, vector databases, and Hugging Face models.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">Python</div>
+                <div className="what-tags">LangChain</div>
+                <div className="what-tags">RAG</div>
+                <div className="what-tags">OpenAI APIs</div>
+                <div className="what-tags">Hugging Face</div>
                 <div className="what-tags">PyTorch</div>
                 <div className="what-tags">TensorFlow</div>
-                <div className="what-tags">OpenCV</div>
-                <div className="what-tags">LangChain</div>
-                <div className="what-tags">CrewAI</div>
-                <div className="what-tags">FastAPI</div>
+                <div className="what-tags">Vector DBs</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -125,22 +126,22 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>DATA ENGINEERING</h3>
+              <h3>BACKEND & DATA</h3>
               <h4>Description</h4>
               <p>
-                Building robust ETL pipelines, optimizing data workflows, 
-                and extracting actionable insights from large-scale datasets.
+                Developing REST APIs, microservices, and automated ETL pipelines, 
+                backed by SQL/NoSQL databases and deployed on AWS and Kubernetes.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
+                <div className="what-tags">FastAPI</div>
+                <div className="what-tags">REST APIs</div>
                 <div className="what-tags">SQL</div>
-                <div className="what-tags">Pandas</div>
-                <div className="what-tags">Airflow</div>
+                <div className="what-tags">PostgreSQL</div>
+                <div className="what-tags">MongoDB</div>
+                <div className="what-tags">Docker</div>
+                <div className="what-tags">Kubernetes</div>
                 <div className="what-tags">AWS</div>
-                <div className="what-tags">GCP</div>
-                <div className="what-tags">Spark</div>
-                <div className="what-tags">Tableau</div>
-                <div className="what-tags">Power BI</div>
               </div>
               <div className="what-arrow"></div>
             </div>

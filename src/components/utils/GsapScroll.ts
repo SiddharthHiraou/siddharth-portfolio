@@ -177,7 +177,8 @@ export function setAllTimeline() {
     careerTimeline.fromTo(
       ".career-section",
       { y: 0 },
-      { y: "20%", duration: 0.5, delay: 0.2 },
+      // Fixed offset: a percentage grows with the section's height and pushes it into the Work heading
+      { y: 380, duration: 0.5, delay: 0.2 },
       0
     );
   } else {

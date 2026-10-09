@@ -1,6 +1,6 @@
 # Siddharth Hiraou - Personal Portfolio 🚀
 
-Welcome to the repository for my personal portfolio website! I am an AI/ML Engineer passionate about building scalable machine learning pipelines, RAG applications, and intelligent systems.
+Welcome to the repository for my personal portfolio website! I am a Software Engineer / AI Software Engineer building Python applications, Generative AI features, RAG pipelines, and data processing systems.
 
 Check out the live portfolio: [siddharth-portfolio-smoky.vercel.app](https://siddharth-portfolio-smoky.vercel.app/)
 
