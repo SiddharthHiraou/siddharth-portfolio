@@ -24,10 +24,11 @@ const Education = () => {
       <div className="education-grid">
         {education.map((item, index) => (
           <div className="education-card" key={index}>
-            <h3>{item.date}</h3>
-            <h4>{item.degree}</h4>
-            <h5>{item.school}</h5>
-            <p>{item.location}</p>
+            <h3>{item.degree}</h3>
+            <h4>{item.school}</h4>
+            <p>
+              {item.date} · {item.location}
+            </p>
           </div>
         ))}
       </div>
