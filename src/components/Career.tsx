@@ -1,5 +1,34 @@
 import "./styles/Career.css";
 
+const roles = [
+  {
+    title: "Software Engineer / AI Software Engineer",
+    company: "Avnet, NY",
+    period: "Jan 2026 – Present",
+    summary:
+      "I build the AI features behind business workflows, from the first prompt to production.",
+    points: [
+      "Build document search that answers from the source material, using RAG with LangChain, OpenAI APIs and vector databases.",
+      "Write the Python services and REST APIs that connect LLMs to the apps, databases and cloud services around them.",
+      "Add NLP features that classify text and pull information out of documents, with Hugging Face, PyTorch and TensorFlow.",
+      "Ship everything in Docker on Kubernetes and AWS, with Git-based CI/CD running the builds, tests and releases.",
+    ],
+  },
+  {
+    title: "Software Engineer",
+    company: "Siemens, India",
+    period: "Sep 2022 – Jul 2024",
+    summary:
+      "Backend engineering in Python: the services, APIs and databases behind enterprise applications.",
+    points: [
+      "Built modular Python microservices, plus shared modules for data validation, transformation and stream processing.",
+      "Designed REST APIs with request validation and clear error handling for internal applications.",
+      "Sped up relational databases by tuning SQL queries, stored procedures and views.",
+      "Wrote pytest suites, fixed production defects, and automated build, test and deploy across dev, staging and production.",
+    ],
+  },
+];
+
 const Career = () => {
   return (
     <div className="career-section section-container">
@@ -12,54 +41,25 @@ const Career = () => {
           <div className="career-timeline">
             <div className="career-dot"></div>
           </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Software Engineer / AI Software Engineer</h4>
-                <h5>Avnet, NY</h5>
+          {roles.map((role) => (
+            <div className="career-info-box" key={role.company}>
+              <div className="career-info-in">
+                <div className="career-role">
+                  <h4>{role.title}</h4>
+                  <h5>{role.company}</h5>
+                </div>
+                <h3>{role.period}</h3>
               </div>
-              <h3>Jan 2026 – Present</h3>
-            </div>
-            <p>
-              • Developed and maintained Python-based software applications that integrated LLMs, machine learning models, external APIs, and cloud services to support AI-enabled business workflows.<br />
-              <br />
-              • Built Generative AI applications using Python, LangChain, OpenAI APIs, and Retrieval-Augmented Generation (RAG), integrating vector databases to provide context-aware search and document-based responses.<br />
-              <br />
-              • Designed and developed Python services and REST APIs to connect AI capabilities with application components, databases, and cloud services, supporting scalable and maintainable production workflows.<br />
-              <br />
-              • Developed document-processing and NLP features using Hugging Face Transformers, PyTorch, and TensorFlow to support text classification, information extraction, and AI-powered application functionality.<br />
-              <br />
-              • Integrated SQL and NoSQL databases with Python applications to manage application data, processed documents, search data, and AI-generated results while supporting reliable data retrieval.<br />
-              <br />
-              • Containerized Python and AI applications using Docker and supported deployment through Kubernetes and AWS services, maintaining consistent development and production environments.<br />
-              <br />
-              • Implemented Git-based CI/CD workflows to automate application builds, testing, and deployments, improving release consistency across cloud environments.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Software Engineer</h4>
-                <h5>Siemens, India</h5>
+              <div className="career-desc">
+                <p className="career-lead">{role.summary}</p>
+                <ul>
+                  {role.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </div>
-              <h3>Sep 2022 – Jul 2024</h3>
             </div>
-            <p>
-              • Designed and developed modular Python microservices to implement business logic and integrate application workflows with enterprise systems.<br />
-              <br />
-              • Built reusable Python modules for data validation, transformation, and stream processing, making common processing logic easier to maintain across services.<br />
-              <br />
-              • Developed RESTful APIs with request validation, error handling, and structured response processing to support communication between internal applications and services.<br />
-              <br />
-              • Improved relational database performance by developing and tuning SQL queries, stored procedures, and database views used by application workflows and reporting processes.<br />
-              <br />
-              • Created unit tests with pytest, investigated application issues, and fixed production defects to improve code reliability and reduce recurring software issues.<br />
-              <br />
-              • Worked with Product, Architecture, and QA teams to understand requirements, define technical approaches, and review code changes before release.<br />
-              <br />
-              • Automated build, testing, and deployment workflows using Git and CI/CD tools, supporting consistent releases across development, staging, and production environments.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </div>
