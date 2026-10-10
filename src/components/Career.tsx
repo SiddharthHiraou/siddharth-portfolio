@@ -60,30 +60,6 @@ const Career = () => {
               • Automated build, testing, and deployment workflows using Git and CI/CD tools, supporting consistent releases across development, staging, and production environments.
             </p>
           </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>M.S. in Data Science</h4>
-                <h5>University at Buffalo, SUNY</h5>
-              </div>
-              <h3>Jan 2026</h3>
-            </div>
-            <p>
-              Master of Science in Data Science, University at Buffalo, The State University of New York, Buffalo, NY.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>B.E. in Information Technology</h4>
-                <h5>Savitribai Phule Pune University</h5>
-              </div>
-              <h3>Jun 2024</h3>
-            </div>
-            <p>
-              Bachelor of Engineering in Information Technology, Savitribai Phule Pune University, India.
-            </p>
-          </div>
         </div>
       </div>
     </div>

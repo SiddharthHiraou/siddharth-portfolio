@@ -1,0 +1,114 @@
+.education-section {
+  margin: auto;
+  padding: 120px 0px 160px;
+  position: relative;
+}
+.education-section h2 {
+  font-size: 70px;
+  line-height: 70px;
+  font-weight: 400;
+  text-align: center;
+  background: linear-gradient(0deg, #7f40ff, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-top: 0;
+  margin-bottom: 70px;
+}
+.education-section h2 > span {
+  font-family: "Geist", sans-serif;
+  font-weight: 300;
+}
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+.education-card {
+  box-sizing: border-box;
+  padding: 36px 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+.education-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: color-mix(in srgb, var(--accentColor) 45%, transparent);
+}
+.education-card h3 {
+  font-size: 48px;
+  line-height: 48px;
+  font-weight: 500;
+  margin: 0 0 28px;
+}
+.education-card h4 {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 500;
+  margin: 0;
+}
+.education-card h5 {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  color: var(--accentColor);
+  margin: 12px 0 0;
+}
+.education-card p {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 6px 0 0;
+}
+
+@media only screen and (max-width: 1400px) {
+  .education-section h2 {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .education-card {
+    padding: 30px 32px;
+  }
+  .education-card h3 {
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 22px;
+  }
+  .education-card h4 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .education-card h5 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .education-section {
+    padding: 0px 0px 90px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .education-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .education-section h2 {
+    font-size: 45px;
+    line-height: 45px;
+    margin-bottom: 40px;
+  }
+  .education-card {
+    padding: 24px;
+  }
+  .education-card h3 {
+    font-size: 33px;
+    line-height: 33px;
+    margin-bottom: 18px;
+  }
+}

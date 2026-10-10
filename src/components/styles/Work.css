@@ -1,107 +1,124 @@
 /* ================================================
-   WORK SECTION – Premium Redesign v2
+   WORK SECTION – v3
+   Desktop (≥ 1025px): pinned horizontal track, every card fully visible
+   Tablet / mobile: cards stack vertically, no pinning
    ================================================ */
 
-.work-section h2 {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  font-size: 70px;
-  font-weight: 500;
-  flex-shrink: 0;
-}
-.work-section h2 > span {
-  color: var(--accentColor);
-}
 .work-section {
+  /* Space kept clear for the fixed navbar (top) and Resume button (bottom) */
+  --work-pad-top: 100px;
+  --work-pad-bottom: 96px;
+  --work-head-h: 56px;
+  --work-head-gap: 24px;
+  --work-card-h: min(
+    620px,
+    calc(
+      100vh - var(--work-pad-top) - var(--work-pad-bottom) - var(--work-head-h) -
+        var(--work-head-gap)
+    )
+  );
+  --work-info-w: 420px;
+
   transition: 0s;
   height: 100vh;
   box-sizing: border-box;
-  will-change: transform;
+  padding: var(--work-pad-top) 0 var(--work-pad-bottom);
   overflow: hidden;
+  /* Fade cards out as they slide under the fixed social icons on the left */
+  -webkit-mask-image: linear-gradient(90deg, transparent 30px, #000 80px);
+  mask-image: linear-gradient(90deg, transparent 30px, #000 80px);
 }
 .work-container {
   margin: auto;
   display: flex;
   flex-direction: column;
   height: 100%;
-  align-content: stretch;
-}
-.work-flex {
-  width: 100%;
-  display: flex;
-  height: 100%;
-  margin-left: -80px;
-  padding-right: 120px;
-  position: relative;
-  /* Allow cards to fill available height */
-  min-height: 0;
-}
-.work-flex::before,
-.work-flex::after {
-  content: "";
-  width: calc(50000vw);
-  height: 1px;
-  background-color: #363636;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-}
-.work-flex::after {
-  top: 100%;
 }
 
 /* ================================================
-   PROJECT CARD
+   HEADING + PROGRESS
+   ================================================ */
+.work-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  height: var(--work-head-h);
+  margin-bottom: var(--work-head-gap);
+  flex-shrink: 0;
+}
+.work-section h2 {
+  margin: 0;
+  font-size: var(--work-head-h);
+  line-height: 1;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.work-section h2 > span {
+  color: var(--accentColor);
+}
+.work-progress {
+  width: 220px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+.work-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: var(--accentColor);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* ================================================
+   TRACK
+   ================================================ */
+.work-flex {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  will-change: transform;
+}
+
+/* ================================================
+   PROJECT CARD – image left, details right
    ================================================ */
 .work-box {
-  padding: 24px 32px;
   display: flex;
-  flex-direction: column;
-  width: 580px;
-  box-sizing: border-box;
   flex-shrink: 0;
-  gap: 12px;
-  justify-content: start;
+  height: var(--work-card-h);
+  box-sizing: border-box;
   position: relative;
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
-  transition: background 0.4s ease;
-  /* KEY FIX: constrain to parent height, allow internal scroll */
-  max-height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  /* Hide scrollbar but keep functionality */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.work-box::-webkit-scrollbar {
-  display: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.4s ease, border-color 0.4s ease;
 }
 .work-box:hover {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: color-mix(
+    in srgb,
+    var(--project-accent, var(--accentColor)) 45%,
+    transparent
+  );
 }
 
-/* All cards: image on top, info below — consistent layout */
-
 /* ================================================
-   HERO IMAGE
+   HERO IMAGE – square, shown in full
    ================================================ */
 .work-hero {
   position: relative;
-  width: 100%;
-  border-radius: 14px;
-  overflow: hidden;
+  width: var(--work-card-h);
+  height: var(--work-card-h);
   flex-shrink: 0;
+  overflow: hidden;
   background: #111;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: border-color 0.4s ease, box-shadow 0.4s ease;
-  /* Cap image height so it doesn't eat the viewport */
-  max-height: 280px;
-}
-.work-box:hover .work-hero {
-  border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 .work-hero img {
   width: 100%;
@@ -117,18 +134,18 @@
 /* Project number badge */
 .work-number {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 14px;
+  left: 14px;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.6);
-  background: rgba(0, 0, 0, 0.55);
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 4px 12px;
+  padding: 5px 12px;
   border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 /* ================================================
@@ -137,16 +154,19 @@
 .work-info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  flex: 1;
+  justify-content: center;
+  gap: 16px;
+  width: var(--work-info-w);
+  box-sizing: border-box;
+  padding: 28px 32px;
   min-height: 0;
 }
 
 .work-title h4 {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 600;
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.25;
   letter-spacing: 0.3px;
 }
 
@@ -154,21 +174,26 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 4px;
+  margin-top: 10px;
   flex-wrap: wrap;
 }
 .work-category {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--project-accent, var(--accentColor));
-  background: rgba(168, 85, 247, 0.08);
-  padding: 3px 10px;
+  background: color-mix(
+    in srgb,
+    var(--project-accent, var(--accentColor)) 10%,
+    transparent
+  );
+  padding: 4px 11px;
   border-radius: 20px;
-  border: 1px solid rgba(168, 85, 247, 0.15);
+  border: 1px solid
+    color-mix(in srgb, var(--project-accent, var(--accentColor)) 25%, transparent);
 }
 .work-period {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.35);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
   font-weight: 400;
 }
 
@@ -178,18 +203,18 @@
 .work-tech-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 6px;
 }
 .work-pill {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  padding: 3px 9px;
+  padding: 4px 10px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.65);
   transition: all 0.3s ease;
   cursor: default;
 }
@@ -197,29 +222,11 @@
   background: rgba(255, 255, 255, 0.1);
   border-color: var(--project-accent, var(--accentColor));
   color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* ================================================
-   DESCRIPTION CARD
+   DESCRIPTION
    ================================================ */
-.work-description-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  padding: 14px 18px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    background 0.4s ease, border-color 0.4s ease;
-
-}
-.work-description-card:hover {
-  transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.12);
-}
 .work-description-card ul {
   list-style-type: none;
   padding: 0;
@@ -228,10 +235,10 @@
 .work-description-card li {
   position: relative;
   padding-left: 18px;
-  margin-bottom: 8px;
-  font-size: 12px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 9px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
   font-weight: 300;
 }
 .work-description-card li:last-child {
@@ -253,12 +260,12 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 3px 10px;
+  padding: 4px 11px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
   color: var(--project-accent, var(--accentColor));
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.3px;
   text-decoration: none;
@@ -270,7 +277,6 @@
   background: var(--project-accent, var(--accentColor));
   border-color: var(--project-accent, var(--accentColor));
   color: #fff;
-  transform: translateY(-1px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 .work-demo-link svg {
@@ -282,118 +288,149 @@
 }
 
 /* ================================================
-   RESPONSIVE – ≤ 1400px
+   DESKTOP – narrower / shorter viewports
    ================================================ */
 @media only screen and (max-width: 1400px) {
-  .work-section h2 {
-    font-size: 50px;
-    margin-top: 40px;
-    margin-bottom: 15px;
+  .work-section {
+    --work-info-w: 380px;
   }
-  .work-box {
-    width: 460px;
-    padding: 20px 24px;
-    gap: 10px;
-  }
-  .work-flex {
-    margin-left: -50px;
-    padding-right: 75px;
+  .work-info {
+    padding: 24px 26px;
+    gap: 14px;
   }
   .work-title h4 {
-    font-size: 16px;
+    font-size: 21px;
   }
-  .work-hero {
-    max-height: 220px;
+}
+@media only screen and (max-width: 1199px) {
+  .work-section {
+    /* Navbar is shorter below 1200px */
+    --work-pad-top: 80px;
   }
-  .work-description-card {
-    padding: 12px 16px;
+}
+@media only screen and (max-height: 760px) {
+  .work-section {
+    --work-pad-top: 88px;
+    --work-pad-bottom: 88px;
+    --work-head-h: 42px;
+    --work-head-gap: 18px;
+  }
+  .work-info {
+    padding: 18px 24px;
+    gap: 11px;
+  }
+  .work-title h4 {
+    font-size: 19px;
+  }
+  .work-meta {
+    margin-top: 7px;
   }
   .work-description-card li {
-    font-size: 11px;
+    font-size: 12px;
+    line-height: 1.45;
     margin-bottom: 6px;
   }
   .work-pill {
-    font-size: 8px;
-    padding: 2px 7px;
-  }
-
-}
-
-/* ================================================
-   RESPONSIVE – ≤ 1025px (Tablet)
-   ================================================ */
-@media only screen and (max-width: 1025px) {
-  .work-container {
-    align-content: normal;
-  }
-  .work-flex {
-    height: auto;
+    font-size: 9px;
+    padding: 3px 8px;
   }
 }
-
-/* ================================================
-   RESPONSIVE – Short screens
-   ================================================ */
-@media only screen and (max-height: 900px) {
-  .work-section h2 {
-    font-size: 55px;
-    margin-top: 35px;
-    margin-bottom: 12px;
+@media only screen and (max-height: 640px) {
+  .work-section {
+    --work-pad-top: 76px;
+    --work-pad-bottom: 80px;
+    --work-head-h: 32px;
+    --work-head-gap: 12px;
+    --work-info-w: 440px;
   }
-  .work-box {
-    padding: 18px 24px;
+  .work-info {
+    padding: 12px 20px;
     gap: 8px;
   }
-  .work-hero {
-    max-height: 200px;
-  }
-  .work-description-card {
-    padding: 10px 14px;
+  .work-title h4 {
+    font-size: 17px;
   }
   .work-description-card li {
     font-size: 11px;
-    line-height: 1.5;
-    margin-bottom: 5px;
+    line-height: 1.4;
+    margin-bottom: 4px;
   }
-
 }
 
-@media only screen and (max-height: 750px) {
-  .work-section h2 {
-    font-size: 45px;
-    margin-top: 25px;
-    margin-bottom: 10px;
+/* ================================================
+   TABLET / MOBILE (≤ 1024px) – vertical stack, no pinning
+   ================================================ */
+@media only screen and (max-width: 1024px) {
+  .work-section {
+    --work-head-h: 44px;
+    --work-head-gap: 28px;
+    height: auto;
+    padding: 80px 0 110px;
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
-  .work-hero {
-    max-height: 160px;
+  .work-container {
+    height: auto;
+  }
+  .work-progress {
+    display: none;
+  }
+  .work-flex {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    will-change: auto;
   }
   .work-box {
-    padding: 14px 20px;
-    gap: 6px;
+    height: auto;
+    width: 100%;
+  }
+  .work-hero {
+    width: 300px;
+    height: 300px;
+    align-self: center;
+    margin-left: 20px;
+    border-radius: 14px;
+  }
+  .work-info {
+    width: auto;
+    flex: 1;
+    min-width: 0;
+    padding: 24px;
+    gap: 14px;
+  }
+  .work-title h4 {
+    font-size: 20px;
   }
   .work-description-card li {
-    font-size: 10px;
-    line-height: 1.45;
-    margin-bottom: 4px;
-    padding-left: 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 8px;
   }
   .work-pill {
-    font-size: 8px;
-    padding: 2px 6px;
+    font-size: 10px;
+    padding: 4px 10px;
   }
 }
 
-@media only screen and (max-height: 650px) {
-  .work-section h2 {
-    font-size: 36px;
-    margin-top: 15px;
-    margin-bottom: 8px;
-  }
-  .work-hero {
-    max-height: 130px;
+/* Narrow container (≤ 900px) – image on top, details below */
+@media only screen and (max-width: 900px) {
+  .work-section {
+    --work-head-h: 38px;
+    padding-top: 60px;
   }
   .work-box {
-    gap: 5px;
-    padding: 10px 16px;
+    flex-direction: column;
+  }
+  .work-hero {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin-left: 0;
+    border-radius: 0;
+  }
+  .work-info {
+    padding: 20px 18px 22px;
   }
 }

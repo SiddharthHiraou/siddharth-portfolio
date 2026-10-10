@@ -1,10 +1,11 @@
+import { useRef } from "react";
 import "./styles/Work.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { FiExternalLink } from "react-icons/fi";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const projects = [
   {
@@ -13,7 +14,7 @@ const projects = [
     period: "Aug 2024 – Nov 2024",
     tools: ["Python", "YOLOv8", "PyTorch", "OpenCV", "FastAPI", "MQTT", "Docker", "Next.js", "Supabase"],
     link: "https://smart-poultry-platform.vercel.app/",
-    image: "/projects/poultry-dashboard.png",
+    image: "/projects/poultry-dashboard.jpg",
     accent: "#22c55e",
     description: [
       "Built a real-time poultry health platform flagging sick, dead, and abnormal birds from camera feeds.",
@@ -28,7 +29,7 @@ const projects = [
     period: "Aug 2024 – Nov 2024",
     tools: ["TypeScript", "Next.js 15", "Python", "FastAPI", "Polars", "DuckDB", "Redis", "Supabase", "LLMs"],
     link: "https://autoetl-mu.vercel.app/",
-    image: "/projects/autoetl-dashboard.png",
+    image: "/projects/autoetl-dashboard.jpg",
     accent: "#a855f7",
     description: [
       "Built a full-stack app converting plain English prompts into executable ETL pipelines.",
@@ -43,7 +44,7 @@ const projects = [
     period: "Research Project",
     tools: ["2D-CNN", "ResNet", "TensorFlow", "PyTorch", "Signal Processing"],
     link: "",
-    image: "/projects/fault-prediction.png",
+    image: "/projects/fault-prediction.jpg",
     accent: "#f59e0b",
     description: [
       "Built an end-to-end fault prediction pipeline for industrial machines.",
@@ -57,7 +58,7 @@ const projects = [
     period: "Jun 2023 – Jan 2024",
     tools: ["Python", "Polars", "LightGBM", "XGBoost", "CatBoost", "Optuna", "SHAP", "Fairlearn", "MLflow", "FastAPI", "Next.js"],
     link: "https://creditlens-seven.vercel.app/",
-    image: "/projects/credit-risk.png",
+    image: "/projects/credit-risk.jpg",
     accent: "#3b82f6",
     description: [
       "Built a credit decisioning platform scoring loan applications in 9 ms with calibrated default probability, 300-850 score, and ECOA adverse-action reasons.",
@@ -71,7 +72,7 @@ const projects = [
     period: "Personal Project",
     tools: ["FastAPI", "Streamlit", "MLflow", "SQLite", "Docker", "CI/CD"],
     link: "",
-    image: "/projects/mlops-pipeline.png",
+    image: "/projects/mlops-pipeline.jpg",
     accent: "#06b6d4",
     description: [
       "Built an end-to-end data intelligence pipeline.",
@@ -82,56 +83,59 @@ const projects = [
 ];
 
 const Work = () => {
-  useGSAP(() => {
-    const getTranslateAmount = () => {
-      const boxes = document.querySelectorAll(".work-box");
-      if (boxes.length === 0) return 0;
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
 
-      // Measure the actual rendered width of all cards by looking at the first and last card
-      const firstCard = boxes[0].getBoundingClientRect();
-      const lastCard = boxes[boxes.length - 1].getBoundingClientRect();
-      
-      // Total pixel width from the start of the first card to the end of the last card
-      const totalContentWidth = lastCard.right - firstCard.left;
-      
-      // We want to translate left just enough so the last card's right edge is on screen,
-      // plus a bit of padding (e.g. 100px) so it doesn't touch the literal edge.
-      const amountToTranslate = totalContentWidth - window.innerWidth + 100;
-      
-      return amountToTranslate > 0 ? amountToTranslate : 0;
-    };
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
 
-    let tween = gsap.to(".work-flex", {
-      x: () => -getTranslateAmount(),
-      ease: "none",
-    });
+      // Horizontal pinned scroll on desktop only; smaller screens stack the cards vertically
+      mm.add("(min-width: 1025px)", () => {
+        const track = trackRef.current!;
+        // Distance needed to bring the last card's right edge to the container's right edge
+        const getDistance = () =>
+          Math.max(0, track.scrollWidth - track.clientWidth);
 
-    ScrollTrigger.create({
-      trigger: ".work-section",
-      start: "top top",
-      // Pin the section for the distance we need to scroll, plus a 400px pause at the end
-      end: () => `+=${getTranslateAmount() + 400}`,
-      pin: true,
-      animation: tween,
-      scrub: 1,
-      invalidateOnRefresh: true,
-      id: "work",
-      anticipatePin: 1,
-    });
+        const tl = gsap.timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: () => `+=${getDistance() * 1.1}`,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
+            id: "work",
+          },
+        });
 
-    return () => {
-      tween.kill();
-      ScrollTrigger.getById("work")?.kill();
-    };
-  }, []);
+        // Short holds at both ends so the first and last cards can be read
+        tl.to({}, { duration: 0.05 })
+          .to(track, { x: () => -getDistance(), duration: 1 })
+          .to(progressRef.current, { scaleX: 1, duration: 1 }, "<")
+          .to({}, { duration: 0.05 });
+      });
+
+      return () => mm.revert();
+    },
+    { scope: sectionRef }
+  );
 
   return (
-    <div className="work-section" id="work">
+    <div className="work-section" id="work" ref={sectionRef}>
       <div className="work-container section-container">
-        <h2>
-          My <span>Work</span>
-        </h2>
-        <div className="work-flex">
+        <div className="work-head">
+          <h2>
+            My <span>Work</span>
+          </h2>
+          <div className="work-progress" aria-hidden="true">
+            <div className="work-progress-bar" ref={progressRef}></div>
+          </div>
+        </div>
+        <div className="work-flex" ref={trackRef}>
           {projects.map((project, index) => (
             <div
               className="work-box"
@@ -143,9 +147,14 @@ const Work = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  width={1024}
+                  height={1024}
                   loading="lazy"
+                  decoding="async"
                 />
-                <div className="work-number">0{index + 1}</div>
+                <div className="work-number">
+                  0{index + 1} / 0{projects.length}
+                </div>
               </div>
 
               {/* Info Section */}
@@ -161,6 +170,7 @@ const Work = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="work-demo-link"
+                        data-cursor="disable"
                       >
                         <FiExternalLink />
                         <span>Live Demo</span>
@@ -172,11 +182,7 @@ const Work = () => {
                 {/* Tech Pills */}
                 <div className="work-tech-pills">
                   {project.tools.map((tool, i) => (
-                    <span
-                      className="work-pill"
-                      key={i}
-                      style={{ animationDelay: `${i * 0.05}s` }}
-                    >
+                    <span className="work-pill" key={i}>
                       {tool}
                     </span>
                   ))}
