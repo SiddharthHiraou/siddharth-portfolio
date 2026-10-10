@@ -1,0 +1,58 @@
+.techlist-section {
+  margin: auto;
+  padding: 0px 0px 40px;
+}
+.techlist-section h2 {
+  font-size: 45px;
+  line-height: 45px;
+  font-weight: 400;
+  text-align: center;
+  background: linear-gradient(0deg, #7f40ff, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin: 0 0 40px;
+}
+.techlist-section h2 > span {
+  font-weight: 300;
+}
+.techlist-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.techlist-group {
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.techlist-group h4 {
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  color: var(--accentColor);
+}
+.techlist-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.techlist-pill {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  padding: 6px 13px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+@media only screen and (min-width: 901px) {
+  .techlist-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

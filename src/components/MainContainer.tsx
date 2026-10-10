@@ -7,6 +7,7 @@ import Education from "./Education";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
+import TechStackList from "./TechStackList";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
@@ -45,10 +46,12 @@ const MainContainer = ({ children }: PropsWithChildren) => {
             <Career />
             <Education />
             <Work />
-            {isDesktopView && (
+            {isDesktopView ? (
               <Suspense fallback={<div>Loading....</div>}>
                 <TechStack />
               </Suspense>
+            ) : (
+              <TechStackList />
             )}
             <Contact />
           </div>

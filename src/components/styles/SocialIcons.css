@@ -96,3 +96,31 @@
     line-height: 16px;
   }
 }
+
+/* Phones / tablets: page content fades out under the fixed Resume button instead of colliding with it */
+@media only screen and (max-width: 1024px) {
+  .icons-section::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 84px;
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      var(--backgroundColor) 75%
+    );
+    pointer-events: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .resume-button {
+    bottom: 16px;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 3px;
+    padding: 10px 22px;
+  }
+}
