@@ -31,7 +31,7 @@ This is a modern, high-performance portfolio website built with React, TypeScrip
 2. **GSAP Animations**:
    - ScrollSmoother and ScrollTrigger handle the horizontal pinning of the `Work` and `Career` sections. Be extremely careful when modifying paddings, margins, or wrapper divs in these components, as it can break the `translateX` calculations in the `useGSAP` hooks.
 3. **Links & Contact**: 
-   - All email links should point to `siddharth.h@itjobinbox.com`.
+   - All email links should point to `siddharth@carrermail.com`.
    - The Resume button is centered at the bottom of the screen with a fixed position.
 
 ## Workflow Commands

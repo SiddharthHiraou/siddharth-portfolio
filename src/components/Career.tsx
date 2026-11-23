@@ -2,29 +2,29 @@ import "./styles/Career.css";
 
 const roles = [
   {
-    title: "Software Engineer / AI Software Engineer",
-    company: "Avnet, NY",
+    title: "AI Forward Deployed Engineer",
+    company: "DXC Technology, NY",
     period: "Jan 2026 – Present",
     summary:
-      "I build the AI features behind business workflows, from the first prompt to production.",
+      "I deploy production AI agents inside enterprise client environments, from discovery workshop to live system.",
     points: [
-      "Build document search that answers from the source material, using RAG with LangChain, OpenAI APIs and vector databases.",
-      "Write the Python services and REST APIs that connect LLMs to the apps, databases and cloud services around them.",
-      "Add NLP features that classify text and pull information out of documents, with Hugging Face, PyTorch and TensorFlow.",
-      "Ship everything in Docker on Kubernetes and AWS, with Git-based CI/CD running the builds, tests and releases.",
+      "Architected OASIS AI agents with LangGraph, LangChain and MCP across 12+ enterprise IT personas, including SAP, Linux and cloud infrastructure.",
+      "Built a vendor-agnostic LLM routing layer over Claude, Amazon Bedrock and Azure OpenAI, cutting PoC-to-production time by 60%.",
+      "Shipped hybrid-search RAG over multi-terabyte knowledge bases with Pinecone and FAISS, lifting retrieval relevance by 35%.",
+      "Run FastAPI services on Docker and Kubernetes at 99.9% uptime, serving 15,000+ daily agentic requests with p95 latency under 1.4s.",
     ],
   },
   {
-    title: "Software Engineer",
-    company: "Siemens, India",
+    title: "Systems Designer",
+    company: "Infinite Infolab, India",
     period: "Sep 2022 – Jul 2024",
     summary:
-      "Backend engineering in Python: the services, APIs and databases behind enterprise applications.",
+      "Backend and data engineering for client software integrations, from system design to cloud delivery.",
     points: [
-      "Built modular Python microservices, plus shared modules for data validation, transformation and stream processing.",
-      "Designed REST APIs with request validation and clear error handling for internal applications.",
-      "Sped up relational databases by tuning SQL queries, stored procedures and views.",
-      "Wrote pytest suites, fixed production defects, and automated build, test and deploy across dev, staging and production.",
+      "Built Python, Java and Flask APIs and microservices connecting client ERP, CRM and web platforms, cutting data sync latency by 40%.",
+      "Designed SQL, Pandas and NumPy ETL pipelines that cut manual reporting turnaround by 55%.",
+      "Built NLP semantic search with LangChain, embeddings and FAISS/ChromaDB, improving knowledge retrieval accuracy by 38%.",
+      "Led AWS and Azure migrations with Docker, Kubernetes and CI/CD, speeding releases by 45% at 99.8% availability.",
     ],
   },
 ];

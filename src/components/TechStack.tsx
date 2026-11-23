@@ -15,26 +15,17 @@ const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
   "/images/python.png",
   "/images/pytorch.png",
-  "/images/tensorflow.png",
   "/images/docker.png",
   "/images/kubernetes.png",
   "/images/aws.png",
-  "/images/gcp.png",
   "/images/git.png",
   "/images/java.png",
   "/images/postgres.png",
-  "/images/cplusplus.png",
-  "/images/r.png",
-  "/images/keras.png",
   "/images/scikitlearn.png",
-  "/images/apachespark.png",
-  "/images/hadoop.png",
   "/images/azure.png",
   "/images/github.png",
-  "/images/mysql.png",
   "/images/pandas.png",
   "/images/numpy.png",
-  "/images/bash.png",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 

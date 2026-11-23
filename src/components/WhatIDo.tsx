@@ -87,22 +87,22 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>AI / ML ENGINEERING</h3>
+              <h3>AGENTIC AI ENGINEERING</h3>
               <h4>Description</h4>
               <p>
-                Building Generative AI applications, RAG pipelines, and NLP features 
-                with LLMs, vector databases, and Hugging Face models.
+                Building agentic AI systems, multi-agent orchestration, and advanced RAG
+                pipelines on top of LLMs and vector databases.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">Python</div>
+                <div className="what-tags">LangGraph</div>
                 <div className="what-tags">LangChain</div>
-                <div className="what-tags">RAG</div>
-                <div className="what-tags">OpenAI APIs</div>
-                <div className="what-tags">Hugging Face</div>
-                <div className="what-tags">PyTorch</div>
-                <div className="what-tags">TensorFlow</div>
-                <div className="what-tags">Vector DBs</div>
+                <div className="what-tags">MCP</div>
+                <div className="what-tags">Advanced RAG</div>
+                <div className="what-tags">Claude</div>
+                <div className="what-tags">Pinecone</div>
+                <div className="what-tags">FAISS</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -129,8 +129,8 @@ const WhatIDo = () => {
               <h3>BACKEND & DATA</h3>
               <h4>Description</h4>
               <p>
-                Developing REST APIs, microservices, and automated ETL pipelines, 
-                backed by SQL/NoSQL databases and deployed on AWS and Kubernetes.
+                Developing FastAPI services, event-driven microservices, and data
+                pipelines, deployed on AWS, Azure, Docker and Kubernetes.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
@@ -138,10 +138,10 @@ const WhatIDo = () => {
                 <div className="what-tags">REST APIs</div>
                 <div className="what-tags">SQL</div>
                 <div className="what-tags">PostgreSQL</div>
-                <div className="what-tags">MongoDB</div>
                 <div className="what-tags">Docker</div>
                 <div className="what-tags">Kubernetes</div>
                 <div className="what-tags">AWS</div>
+                <div className="what-tags">Azure</div>
               </div>
               <div className="what-arrow"></div>
             </div>

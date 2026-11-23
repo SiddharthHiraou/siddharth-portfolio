@@ -10,19 +10,19 @@ const Contact = () => {
           <div className="contact-box">
             <h4>Email</h4>
             <p>
-              <a href="mailto:siddharth.h@itjobinbox.com" data-cursor="disable">
-                siddharth.h@itjobinbox.com
+              <a href="mailto:siddharth@carrermail.com" data-cursor="disable">
+                siddharth@carrermail.com
               </a>
             </p>
             <h4>Phone</h4>
             <p>
-              <a href="tel:+17162020655" data-cursor="disable">
-                +1 716-202-0655
+              <a href="tel:+17162170399" data-cursor="disable">
+                +1 716-217-0399
               </a>
             </p>
             <h4>Location</h4>
             <p>
-              Buffalo, NY
+              New York, NY
             </p>
           </div>
           <div className="contact-box">
